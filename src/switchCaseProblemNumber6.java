@@ -41,6 +41,7 @@ public class switchCaseProblemNumber6 {
 
             System.out.println("Enter your choice");
             ch = sc.nextInt();
+            sc.nextLine();
             switch (ch) {
                 case 1:
                     System.out.println("Your balance is ₹" + bal);
@@ -64,12 +65,46 @@ public class switchCaseProblemNumber6 {
                     if (withdraw > 0 ){
                         System.out.println("your withdrawl amount is " + withdraw +"\n" +"your remaining balance is "+ (bal - withdraw));
                     }
+                    else {
+                        System.out.println("print in sufficient balance ");
+                    }
+                    break;
+                case 4 :
+                    // changing of pin
+//                    the real problem is actually sc.nextInt() is came for number only and \n is the String part so it runs into it , thats why it leads to Scnaner problem
+                    //the solution for this is add sc.nextLine() for stringt after sc.nextInt()
+                    System.out.println("For changing of new pin ");
+                    System.out.println("Enter your current password");
+                            String currpass= sc.nextLine();
+                    if (currpass.equals(pass)) {
+                        System.out.println("Generate your new Pin");
+                        String newpass=  sc.nextLine();
+                        System.out.println("Renter your new pass");
+                        String againnewpass = sc.nextLine();
+                        if (againnewpass.equals(newpass)){
+                            System.out.println("password changed successfully");
+                            pass = newpass;
+                        }
+                        else {
+                            System.out.println("wrong password detected " + "\n" + "password is not changed" );
+                            return;
+                        }
+                    }else {
+                        System.out.println("wrong pass entered , please enter your prev pass");
+                        return;
+                    }
+                    break;
 
-
+                case 5 :
+                    System.out.println("Thanks for visiting us ");
+                    break;
+                default:
+                    System.out.println("please select some valuable operation from 1 to 4 and press 5 for exit");
             }
 
 
         }
+        sc.close();
 
     }
 }
