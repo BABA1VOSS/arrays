@@ -85,14 +85,6 @@ public class arrayLevelThree {
                 fail++;
             }
         }
-
-
-
-
-
-
-
-
         //printing of everything --->
         System.out.println("Marks obtained by each students are : - " + Arrays.toString(marks) +
                 "\n" + "Total marks of the Students are : - " + sum + "\n" + "The average of the Students :-" + avg+ "\n" + "The maximum number is : - " + maxMarks + " \n" + "The minimum number is " + minMarks );
@@ -110,5 +102,11 @@ public class arrayLevelThree {
         System.out.println("Fail (Below 40): " + fail);
 
         sc.close();
+
+
+
+
+
+
     }
 }
