@@ -36,7 +36,7 @@ public class arrayFinalLevelChallange {
             double avg = 0;
             for (int j = 0; j<arr[i].length; j++){
                 sum = sum + arr[i][j];
-                avg = (double)sum / 4;
+                avg = (double)sum / arr[i].length; //mene 4 likha tha kyunki 4 subj the lekin yeh likhunga arr[i].length to bht badia rhega bar bar subject nahi ginne padenge
             }
             System.out.println("Students " + (i +1) + " marks " + sum);
             System.out.println("Students " + (i+1) + " avg "+ avg);
@@ -49,6 +49,63 @@ public class arrayFinalLevelChallange {
 
 
         // finding of highest individual marks
+        for (int i=0; i<arr.length; i++){
+            int maxValue=arr[0][0];
+            int top = 0;
+            for (int j=0; j<arr[i].length; j++){
+                if (arr[i][j] > maxValue){
+                    maxValue = arr[i][j];
+                    top++;
+                }
+            }
+            System.out.println("Highest mark scored by student n0. " + (i+1) + " " + maxValue);
+            System.out.println("topper is " + top);
+
+        }
+
+        for (int i = 0; i< arr.length; i++){
+            int minValue = arr[0][0];
+            for (int j = 0; j < arr[i].length; j++){
+                if (arr[i][j] < minValue){
+                    minValue = arr[i][j];
+                }
+            }
+            System.out.println("Highest mark scored by student n0. "  + " " + minValue);
+        }
+        // Class avg
+//        int avg = 0;
+//        int sum = 0;
+        // for this we use to do sum and avg so we first calculate the sum and avg
+//        for (int i =0; i<arr.length; i++){
+//            for (int j=0; j<arr[i].length; j++){
+//                sum = sum + arr[i][j];
+//                avg = sum/arr.length;
+//            }
+//        }
+//        System.out.println("The sum is " + sum +"\n"+ "The avg is " + avg );
+
+
+        for (int i =0; i< arr.length; i++){
+            int pass = 0;
+            int fail = 0;
+            for (int j = 0; j<arr[i].length; j++){
+                if (arr[i][j] > 40){
+                    pass++;
+                }
+                else {
+                    fail++;
+                }
+            }
+            System.out.println("Pass (40-100): " + pass);
+
+            System.out.println("Fail (Below 40): " + fail);
+        }
+
+
+
+
+
+// yaha se sara sahi code hai isko kal mein dubara karunga
 
 
 
@@ -57,6 +114,203 @@ public class arrayFinalLevelChallange {
 
 
 
+        // ------------------------------------------------
+        // 3. STUDENT TOTAL AND AVERAGE
+        // ------------------------------------------------
+
+        System.out.println("\n----- STUDENT TOTAL & AVERAGE -----");
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int sum = 0;
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                sum = sum + arr[i][j];
+            }
+
+            double avg = (double) sum / arr[i].length;
+
+            System.out.println(
+                    "Student " + (i + 1) +
+                            " Total = " + sum
+            );
+
+            System.out.println(
+                    "Student " + (i + 1) +
+                            " Average = " + avg
+            );
+        }
+
+
+        // ------------------------------------------------
+        // 4. FIND TOPPER
+        // ------------------------------------------------
+
+        int highestTotal = 0;
+        int topper = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int studentTotal = 0;
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                studentTotal = studentTotal + arr[i][j];
+            }
+
+            if (studentTotal > highestTotal) {
+
+                highestTotal = studentTotal;
+                topper = i + 1;
+            }
+        }
+
+        System.out.println("\nTopper = Student " + topper);
+        System.out.println("Highest Total = " + highestTotal);
+
+
+        // ------------------------------------------------
+        // 5. HIGHEST INDIVIDUAL MARK
+        // ------------------------------------------------
+
+        int highestMark = arr[0][0];
+
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                if (arr[i][j] > highestMark) {
+
+                    highestMark = arr[i][j];
+                }
+            }
+        }
+
+        System.out.println(
+                "Highest individual mark = " + highestMark
+        );
+
+
+        // ------------------------------------------------
+        // 6. LOWEST INDIVIDUAL MARK
+        // ------------------------------------------------
+
+        int lowestMark = arr[0][0];
+
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                if (arr[i][j] < lowestMark) {
+
+                    lowestMark = arr[i][j];
+                }
+            }
+        }
+
+        System.out.println(
+                "Lowest individual mark = " + lowestMark
+        );
+
+
+        // ------------------------------------------------
+        // 7. COUNT PASSING STUDENTS
+        // ------------------------------------------------
+
+        int passingStudents = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            boolean passed = true;
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                if (arr[i][j] < 40) {
+
+                    passed = false;
+                    break;
+                }
+            }
+
+            if (passed) {
+
+                passingStudents++;
+            }
+        }
+
+        System.out.println(
+                "Passing students = " + passingStudents
+        );
+
+
+        // ------------------------------------------------
+        // 8. CLASS TOTAL AND CLASS AVERAGE
+        // ------------------------------------------------
+
+        int classTotal = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                classTotal = classTotal + arr[i][j];
+            }
+        }
+
+        int totalMarks = arr.length * arr[0].length;
+
+        double classAverage =
+                (double) classTotal / totalMarks;
+
+        System.out.println(
+                "Class Total = " + classTotal
+        );
+
+        System.out.println(
+                "Class Average = " + classAverage
+        );
+
+
+        // ------------------------------------------------
+        // 9. STUDENTS ABOVE CLASS AVERAGE
+        // ------------------------------------------------
+
+        int aboveClassAverage = 0;
+
+        System.out.println(
+                "\nStudents above class average:"
+        );
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int studentTotal = 0;
+
+            for (int j = 0; j < arr[i].length; j++) {
+
+                studentTotal = studentTotal + arr[i][j];
+            }
+
+            double studentAverage =
+                    (double) studentTotal / arr[i].length;
+
+            if (studentAverage > classAverage) {
+
+                System.out.println(
+                        "Student " + (i + 1) +
+                                " → Average = " + studentAverage
+                );
+
+                aboveClassAverage++;
+            }
+        }
+
+        System.out.println(
+                "Students above class average = "
+                        + aboveClassAverage
+        );
+
+
+        sc.close();
     }
-
 }
